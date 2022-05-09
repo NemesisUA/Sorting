@@ -11,31 +11,111 @@ html {
 
 body {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 100px;
+    margin: 0 auto;    
     background-color: white;    
 }
 
-h1, h2 {
-    color: blueviolet;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: underline;
-    text-shadow: 1px 1px darkgrey;
-    padding: 10px;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding: 0 50px;    
 }
+
+.logo {    
+    transition: transform 2s;
+}
+
+.logo:hover {    
+    transform: rotate(180deg);
+}
+
+.github-logo {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: no-repeat center;
+    background-image: url("./src/github.svg");
+}
+
+.github-logo:hover {
+    background-image: url("./src/github2.svg");
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;  
+    margin: 0;  
+    padding: 20px 0 15px;
+    border-top: 1px solid blueviolet;
+    border-bottom: 1px solid blueviolet;
+}
+
+.navigation li {
+    width: 150px;
+    text-align: center;
+    background-color: #083b66;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px blueviolet;
+    transition: all 0.5s;
+}
+
+.navigation li:hover {
+    background-color: blueviolet;
+    box-shadow: 2px 2px 2px #083b66;
+}
+
+.navigation a {
+    font-weight: bold;    
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+header a {
+    text-decoration: none;
+}
+
+main {
+    padding: 20px 40px;
+}
+
+h1, h2 {
+    color: #083b66;
+    text-align: center;
+    text-transform: uppercase;    
+    text-shadow: 1px 2px blueviolet;
+    padding: 10px;
+    transition: all 0.5s;
+    }
+
+h1:hover {
+    color: blueviolet;
+    text-shadow: 1px 2px #083b66;
+}
+
 
 h3 {
     color: blueviolet;
+    padding-left: 40px;
+    margin-top: 40px;
 }
 
-p {
-    padding: 5px;
+li {
+    margin-bottom: 10px;
 }
 
 img.center {
     display: block;
     width: 50%;
+    margin: 10px auto;
+}
+
+.bigImg {
+    display: block;
+    width: 90%;   
     margin: 10px auto;
 }
 

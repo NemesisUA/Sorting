@@ -1,79 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorting</title>
-    <link rel="stylesheet" href="style.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad()</script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Sorting algorithms</h1>
-    <p>Below we will consider a description of some sorting algorithms, the complexity, number of comparisons and swaps, the need for additional memory, stability, and applicability. A stable sort is a sort that does not change the relative order of the sorted elements that have the same values, by which the sorting occurs.
-    </p>
-    <img src="src/sorting.png" class="center" alt="types_of_sorting" >
+  <header>
+    <div class="logo">
+      <a href="#"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
+    </div>
+    <a href="#"><h1>sorting methods</h1></a>
+    <a href="https://github.com/NemesisUA?tab=repositories" target="_blank"><span class="github-logo"></span></a>
+  </header>
     
-    <section>
-    <h2>Bubble sorting</h2>
-    <p>Bubble Sort is the simplest sorting algorithm. We compare pairs of adjacent elements and swap them if they are not in the correct order. As a result of the first step, it turns out that the largest element moves to the end of the array. At the second stage, the second largest element following it moves to the penultimate place, and so on.</p>
-    <img src="src/bubble_table.png" class="center" alt="table">
-    <p>To reduce the number of N iterations, if an array is partially sorted, we can use a flag that keeps track of whether we have swapped any element in the last iteration. If no elements have been swapped, this means that the array is already sorted and you can stop iterating earlier. This turns bubble sort into an adaptive sort algorithm.</p>
-    <p>Let us sort our array of library cards using the bubble sort. Recall that the values of library cards are {124,235,456,123,756,476,285,998,379,108}.</p>
-    <img src="src/bubble.gif"  alt="bubble_sort" >
-    <h3>Look at the program implementation of the bubble sort.</h3>
-    <details>
-        <summary>JavaScript realisation</summary>
-        <pre>
-            <code class="js">
-                function bubbleSort(arr) {
-                    let count = 0;
-                    let needIteration = true;
-                    while (needIteration) {
-                      needIteration = false;
-                   
-                      for (let i = 0; i < arr.length; i++) {
-                        for (let j = 0; j < arr.length - i - 1; j++) {
-                          if (arr[j] > arr[j + 1]) {
-                            const temp = arr[j + 1];
-                            arr[j + 1] = arr[j];
-                            arr[j] = temp;
-                            count += 1;
-                            needIteration = true;
-                          }
-                        }
-                      }
-                      return count;
-                    }
-                  }
-                   
-                  const initData = [124, 235, 456, 123, 756, 476, 285, 998, 379, 108];
-                  console.log(`Initial array:`, initData);
-                  const iterationsTestData = bubbleSort(initData);
-                  console.log(`The number of permutations is: ${iterationsTestData}`, `\nSorted array:`, initData);
-            </code>
-                The result:
+    <nav>
+      <ul class="navigation">
+        <li><a href="#">Bubble</a></li>
+        <li><a href="#">Selection</a></li>
+        <li><a href="#">Insertion</a></li>
+        <li><a href="#">Heap</a></li>
+        <li><a href="#">Radix</a></li>
+        <li><a href="#">Merge</a></li>
+        <li><a href="#">Quick</a></li>
+      </ul>
+    </nav>
+  
+  <main>
+    <p>Algorithm complexity is just a way to formally measure how fast a program or an algorithm is running. This method is based on comparing two algorithms at an ideal level of performance</p>
+    <p>Complexity analysis also allows us to explain how an algorithm will behave as the input data flow increases. If our algorithm runs for one second with 100 elements at the input, then how will it behave if we double this value? Will it run as fast, half as fast, or twice as slow? In programming practice, such forecasting is quite important. Big O notation is used to describe the complexity of algorithms or to predict the effectiveness of a written block of code.</p>
 
-                Initial array: [ 124, 235, 456, 123, 756, 476, 285, 998, 379, 108 ]
-                The number of permutations is: 20 
-                Sorted array: [ 108, 123, 124, 235, 285, 379, 456, 476, 756, 998 ]
-            
-        </pre>
-    </details>
-    <h3>You should choose the bubble sort when:</h3>
-    <ul>
-        <li>an array is partially sorted as the bubble sort is adaptive</li>
-        <li>an array to be sorted is relatively small</li>
-        <li>a simple sorting implementation is desired</li>
-        <li>there are limits on memory usage</li>
-    </ul>
-    <h3>Video:</h3>
-    <a href="https://www.youtube.com/watch?v=yIQuKSwPlro" target="_blank">Bubble Sort</a>
-    <br>
-    <a href="https://www.youtube.com/watch?v=18OO361--1E&list=RDCMUCA2YOQHuWzVn1TWmlK5XYxA&index=3" target="_blank">Bubble Sort Algorithm</a>
-    </section>
+    <h3>Basic rules for calculating an algorithm's Big O Notation as follows:</h3>
+    <ol>
+      <li>Ignore constants: we are concerned only with those elements of the function that influence the order of growth. For example, &#131;(n) = 4n gives &#131;(n) = n.</li>
+      <li>Certain terms "dominate" other terms (ignore low-order terms): we ignore low-order terms when they are dominated by high-order ones. For example, &#131;(n) = n<sup>2</sup> + 4n + 6 gives &#131;(n) = n<sup>2</sup>. </li>
+      <li>Some typical orders of growth are shown below:</li>
+    </ol>
+    <img class="bigImg" src="./src/bigO.png" alt="bigO illustration">
+    <img src="./src/bigO_table1.png" alt="bigO table">
+    <p>Big O is called an asymptotic function since it takes care of the performance of an algorithm at the limit, that is, when a lot of input data is entered into it. It should also be noted that there are other asymptotic functions.</p>
+    <img src="./src/bigO_table2.png" alt="">
+    <p>The visualization of different complexity classes can be found by the <a href="https://www.bigocheatsheet.com/" target="_blank">link</a>.</p>
+    <a href="https://medium.com/@dimko1/%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B-%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE-bd266bed5a71">Алгоритмы</a>
+  </main>
+  <script src="./jjjs.js"></script>
 </body>
 </html>
