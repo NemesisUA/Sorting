@@ -12,18 +12,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
 </head>
 <body>
-    <h1>Sorting algorithms</h1>
-    <p>Below we will consider a description of some sorting algorithms, the complexity, number of comparisons and swaps, the need for additional memory, stability, and applicability. A stable sort is a sort that does not change the relative order of the sorted elements that have the same values, by which the sorting occurs.
-    </p>
-    <img src="src/sorting.png" class="center" alt="types_of_sorting" >
+  <header>
+    <div class="logo">
+      <a href="./index.html"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
+    </div>
+    <a href="./index.html"><h1>sorting methods</h1></a>
+    <a href="https://github.com/NemesisUA?tab=repositories" target="_blank"><span class="github-logo"></span></a>
+  </header>
     
-    <section>
+    <nav>
+      <ul class="navigation">
+        <li class="active"><a href="#">Bubble</a></li>
+        <li><a href="#">Selection</a></li>
+        <li><a href="#">Insertion</a></li>
+        <li><a href="#">Heap</a></li>
+        <li><a href="#">Radix</a></li>
+        <li><a href="#">Merge</a></li>
+        <li><a href="#">Quick</a></li>
+      </ul>
+    </nav>
+
+    <main>   
     <h2>Bubble sorting</h2>
     <p>Bubble Sort is the simplest sorting algorithm. We compare pairs of adjacent elements and swap them if they are not in the correct order. As a result of the first step, it turns out that the largest element moves to the end of the array. At the second stage, the second largest element following it moves to the penultimate place, and so on.</p>
-    <img src="src/bubble_table.png" class="center" alt="table">
+    <img src="src/bubble_page/bubble_table.png" class="center" alt="table">
     <p>To reduce the number of N iterations, if an array is partially sorted, we can use a flag that keeps track of whether we have swapped any element in the last iteration. If no elements have been swapped, this means that the array is already sorted and you can stop iterating earlier. This turns bubble sort into an adaptive sort algorithm.</p>
     <p>Let us sort our array of library cards using the bubble sort. Recall that the values of library cards are {124,235,456,123,756,476,285,998,379,108}.</p>
-    <img src="src/bubble.gif"  alt="bubble_sort" >
+    <img src="src/bubble_page/bubble.gif"  alt="bubble_sort" >
     <h3>Look at the program implementation of the bubble sort.</h3>
     <details>
         <summary>JavaScript realisation</summary>
@@ -74,6 +89,6 @@
     <a href="https://www.youtube.com/watch?v=yIQuKSwPlro" target="_blank">Bubble Sort</a>
     <br>
     <a href="https://www.youtube.com/watch?v=18OO361--1E&list=RDCMUCA2YOQHuWzVn1TWmlK5XYxA&index=3" target="_blank">Bubble Sort Algorithm</a>
-    </section>
+    </main>
 </body>
 </html>
