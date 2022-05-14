@@ -58,20 +58,20 @@ header {
     background-color: #083b66;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px blueviolet;
+    box-shadow: 2px 2px 3px blueviolet;
     transition: all 0.5s;
 }
 
 .navigation li:hover {
     background-color: blueviolet;
-    box-shadow: 2px 2px 2px #083b66;
+    box-shadow: 2px 2px 3px #083b66;
 }
 
 .navigation li.active {    
     /* background: linear-gradient(to bottom right, rgb(222, 203, 240), blueviolet); */
     background-color: blueviolet;
     opacity: 0.8;
-    box-shadow: inset 0 0 5px 0 #083b66 ;
+    box-shadow: inset 0 0 6px 0 #083b66 ;
 }
 
 .navigation li.active:hover {
@@ -102,7 +102,7 @@ h1, h2 {
     color: #083b66;
     text-align: center;
     text-transform: uppercase;    
-    text-shadow: 1px 2px blueviolet;
+    text-shadow: 1px 2px 2px blueviolet;
     padding: 10px;
     transition: all 0.5s;
     }
@@ -113,13 +113,13 @@ h1, h2 {
 
 h1:hover {
     color: blueviolet;
-    text-shadow: 1px 2px #083b66;
+    text-shadow: 1px 2px 3px #083b66;
 }
 
 h2 {
     color: blueviolet;
     font-size: 28px;
-    text-shadow: 1px 1px #083b66;
+    text-shadow: 1px 1px  #083b66;
 }
 
 
