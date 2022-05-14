@@ -148,4 +148,15 @@ img.center {
 details {
     background-color: bisque;
     padding: 20px;
+    margin-top: 20px;
+}
+
+span.attention {
+    font-style: italic;
+    color: blue;
+}
+
+.gif_wrapper {
+    display: flex;
+    gap: 30px;
 }

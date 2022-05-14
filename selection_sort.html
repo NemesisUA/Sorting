@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,19 +10,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad()</script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
-          <a href="./index.html"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
+            <a href="./index.html"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
         </div>
-        <a href="./index.html"><h1>sorting methods</h1></a>
+        <a href="./index.html">
+            <h1>sorting methods</h1>
+        </a>
         <a href="https://github.com/NemesisUA?tab=repositories" target="_blank"><span class="github-logo"></span></a>
-      </header>
-        
-        <nav>
-          <ul class="navigation">
+    </header>
+
+    <nav>
+        <ul class="navigation">
             <li><a href="./bubble_sort.html">Bubble</a></li>
             <li class="active"><a href="#">Selection</a></li>
             <li><a href="#">Insertion</a></li>
@@ -29,11 +34,119 @@
             <li><a href="#">Radix</a></li>
             <li><a href="#">Merge</a></li>
             <li><a href="#">Quick</a></li>
-          </ul>
-        </nav>
+        </ul>
+    </nav>
 
-        <main>
+    <main>
+        <h2>Selection Sorting</h2>
+        <p>Selection sort is a kind of hybrid between the bubble sort and the insertion sort. Like the bubble sort, this
+            algorithm iterates over an array over and over, moving one value to the correct position. The correct
+            position for the selected element is determined before moving to the next element in the array, and with
+            each pass, the unsorted part of the array is decreased by one element. However, unlike the bubble sort, it
+            selects the smallest unsorted value instead of the largest one. As with the insertion sort, the sorted
+            portion of the array is at the beginning, while in the bubble sort it is at the end.</p>
+        <img src="./src/selection_page/selection_table.png" class="center" alt="table">
+        <p><span class="attention">Selection sort is NOT a stable sorting algorithm because equal elements are
+                re-arranged in the final sort order with relation to one another.</span></p>
+        <p>Let us sort our array of library cards using the selection sort. Recall that the values of library cards are
+            {124,235,456,123,756,476,285,998,379,108}.</p>
+        <img src="./src/selection_page/selection.gif" alt="selection sorting">
+        <h3>Look at the program implementation of the selection sort.</h3>
+        <details>
+            <summary>JavaScript realisation</summary>
+            <pre>
+                    <code class="js">
+                        function selectionSort(arr) {
+                            for (let i = 0; i < arr.length; i++) {
+                              let min = i;
+                           
+                              for (let j = i + 1; j < arr.length; j++) {
+                                if (arr[min] > arr[j]) {
+                                  min = j;
+                                }
+                              }
+                           
+                              const temp = arr[min];
+                              arr[min] = arr[i];
+                              arr[i] = temp;
+                            }
+                          }
+                           
+                          const initData = [124, 235, 456, 123, 756, 476, 285, 998, 379, 108];
+                          console.log(`Initial array:`, initData);
+                          selectionSort(initData);
+                          console.log(`Sorted array:`, initData);
+                    </code>
+                    The result:
 
-        </main>
+                    Initial array: [ 124, 235, 456, 123, 756, 476, 285, 998, 379, 108 ]
+                    Sorted array: [ 108, 123, 124, 235, 285, 379, 456, 476, 756, 998 ]
+                </pre>
+        </details>
+
+        <h3>You should choose the selection sort when:</h3>
+        <ul>
+            <li>an array is not partially sorted, so even if an array is partially sorted, still each element is
+                compared and there is no breaking out early</li>
+            <li>an array to be sorted is relatively small</li>
+            <li>a simple sorting implementation is desired</li>
+            <li>there are limits on memory usage</li>
+        </ul>
+
+        <h3>Video</h3>
+        Click <a href="https://www.youtube.com/watch?v=g-PGLbMth_g" target="_blank">here</a>
+        or <a href="https://www.youtube.com/watch?v=R_f3PJtRqUQ" target="_blank">here</a> to see a more detailed
+        explanation of the selection sort.
+
+        <details>
+            <summary>One more example</summary>
+            <p>Самый простой и примитивный алгоритм сортировки — Selection Sort. Суть алгоритма достаточно проста, мы
+                берем первый элемент массива, и бегаем по всему оставшемуся массиву в поисках числа меньше нашего
+                первого элемента. Когда мы пробегаем весь массив, если меньшее число найдено — меняем его местами с
+                первым элементом. После этого мы вибраем второй элемент, и все повторяется, пока для каждого элемента мы
+                не пройдем оставшуюся часть массива.</p>
+            <p>Код алгоритма элементарен:</p>
+            <pre>
+                <code class="js">
+                    var selection_sort = function(array){
+                        var length = array.length;
+                        for (var i = 0; i < length; i++){ 
+                          var min = i;
+                          for (var j = i + 1 ; j < length; j++){  
+                            if (array[min] > array[j]){
+                              min = j;
+                            }
+                          }
+                          array.swap(i,min);
+                        }
+                        return array;
+                      }
+                </code>
+            </pre>
+
+            <div class="gif_wrapper">
+                <div>
+                    <p>Визуализация тоже не показывает никаких фантастических картин:</p>
+                    <img src="./src/selection_page/selection_visualization.gif" alt="">
+                </div>
+                <div>
+                    <p>Алгоритм не отличается скоростью, даже если массив будет частично отсортирован:
+                    </p>
+                    <img src="./src/selection_page/selection_visualization.gif" alt="">
+                </div>
+                <div>
+                    <p>Ну и скорость не особо падает, в самом худшем случае</p>
+                    <img src="./src/selection_page/selection_visualization.gif" alt="">
+                </div>
+            </div>
+
+            <ul>
+                <li>Сложность по памяти: O(n) = 1</li>
+                <li>По времени : обход O(n) = n ^ 2 , + также n для обмена местами элементов.</li>
+            </ul>
+        </details>
+
+    </main>
 </body>
+
 </html>
