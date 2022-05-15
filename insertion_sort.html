@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,100 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad()</script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
 </head>
+
 <body>
-    
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
+        </div>
+        <a href="./index.html">
+            <h1>sorting methods</h1>
+        </a>
+        <a href="https://github.com/NemesisUA?tab=repositories" target="_blank"><span class="github-logo"></span></a>
+    </header>
+
+    <nav>
+        <ul class="navigation">
+            <li><a href="./bubble_sort.html">Bubble</a></li>
+            <li><a href="./selection_sort.html">Selection</a></li>
+            <li class="active"><a href="#">Insertion</a></li>
+            <li><a href="#">Heap</a></li>
+            <li><a href="#">Radix</a></li>
+            <li><a href="#">Merge</a></li>
+            <li><a href="#">Quick</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <h2>Insertion Sorting</h2>
+        <p>Insertion sort iterates through an array and moves the desired value to the beginning of the array. After the
+            next position has been processed, we know that all positions preceding it are sorted, but not the positions
+            following it. This sort is "stable" since identical elements will not change their order.</p>
+        <img src="./src/insertion_page/insertion_table.png" class="center" alt="table">
+        <p>Let us sort our array of library cards using the insertion sort. Recall that the values of library cards are
+            {124,235,456,123,756,476,285,998,379,108}.</p>
+        <img src="./src/insertion_page/insertion.gif" alt="insertion gif">
+        <p>Look at the program implementation of the insertion sort.</p>
+
+        <details>
+            <summary>JavaScript realisation</summary>
+            <pre>
+                    <code class="js">
+                        function insertionSort(arr) {
+                            let count = 0;
+                           
+                            for (let i = 1; i < arr.length; i++) {
+                              const keyItem = arr[i];
+                              let j = i - 1;
+                           
+                              while (j >= 0 && keyItem < arr[j]) {
+                                const temp = arr[j + 1];
+                                arr[j + 1] = arr[j];
+                                arr[j] = temp;
+                                count += 1;
+                                j--;
+                              }
+                            }
+                           return count;
+                          }
+                           
+                          const initData = [124, 235, 456, 123, 756, 476, 285, 998, 379, 108];
+                          console.log(`Initial array:`, initData);
+                          const iterationsTestData = insertionSort(initData);
+                          console.log(`The number of permutations is: ${iterationsTestData}`, `\nSorted array:`, initData);
+                    </code>
+                    The result:
+
+                    Initial array: [ 124, 235, 456, 123, 756, 476, 285, 998, 379, 108 ]
+                    The number of permutations is: 20 
+                    Sorted array: [ 108, 123, 124, 235, 285, 379, 456, 476, 756, 998 ]
+                </pre>
+        </details>
+
+        <h3>You should choose the insertion sort when:</h3>
+        <ul>
+            <li>an array is partially sorted as the insertion sort is adaptive</li>
+            <li>an array to be sorted is relatively small</li>
+            <li>a simple sorting implementation is desired</li>
+            <li>there are limits on memory usage</li>
+        </ul>
+        <br>
+
+        <p>Click <a target="_blank" href="https://www.youtube.com/watch?v=JU767SDMDvA">here</a> or
+            <a target="_blank"
+                href="https://www.youtube.com/watch?v=uMqVuEEWJv4&list=RDCMUCA2YOQHuWzVn1TWmlK5XYxA&index=4">here</a> to
+            see a more detailed explanation of the insertion sort.
+        </p>
+        <p>Click <a target="_blank" href="https://www.youtube.com/watch?v=TZRWRjq2CAg">here</a> to watch Insertion Sort
+            vs. Bubble Sort + Some analysis.</p>
+        <h3>Read <a
+                href="https://medium.com/@dimko1/%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B-%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B8-insertion-sort-226a8bb765a"
+                target="_blank">this</a></h3>
+    </main>
 </body>
+
 </html>
