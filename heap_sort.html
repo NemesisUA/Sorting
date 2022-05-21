@@ -13,6 +13,108 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
 </head>
 <body>
-    
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
+        </div>
+        <a href="./index.html">
+            <h1>sorting methods</h1>
+        </a>
+        <a href="https://github.com/NemesisUA?tab=repositories" target="_blank"><span class="github-logo"></span></a>
+    </header>
+
+    <nav>
+        <ul class="navigation">
+            <li><a href="./bubble_sort.html">Bubble</a></li>
+            <li><a href="./selection_sort.html">Selection</a></li>
+            <li><a href="./insertion_sort.html">Insertion</a></li>
+            <li class="active"><a href="#">Heap</a></li>
+            <li><a href="#">Radix</a></li>
+            <li><a href="#">Merge</a></li>
+            <li><a href="#">Quick</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <h2>Heap Sorting</h2>
+        <p>Heapsort is a comparison-based sorting technique based on the binary heap data structure. This is similar to sorting by selection, where we first find the minimum element and place the minimum element in the beginning. However, in this case, the largest elements are usually placed in the nodes. We repeat the same process for the rest of the elements. Heapsort combines the time efficiency of merge sort and the storage efficiency of quicksort which will be discussed below.</p>
+        <p>You know that a complete binary tree is a binary tree in which every level, except perhaps the last one, is completely filled, and all nodes are located as far left as possible. A heap data structure is a binary tree with a specific structural orientation, often known as a complete binary tree.</p>
+
+        <img src="./src/heap_page/heap_table.png" class="center" alt="table">
+        <p><span class="attention">Heapsort is NOT a stable sorting algorithm because equal elements are rearranged in the final sort order with relation to one another.</span></p>
+        <br>
+        <p>Let us sort our array of library cards using the insertion sort. Recall that the values of library cards are
+            {124,235,456,123,756,476,285,998,379,108}.</p>
+        <img src="./src/heap_page/heap.gif" alt="insertion gif">
+        <p>Look at the program implementation of the insertion sort.</p>
+
+        <details>
+            <summary>JavaScript realisation with Recursin Method</summary>
+            <pre>
+                <code class="js">
+                    function heapify(arr, n, i) {
+                        let largest = i;
+                        let left = 2 * i + 1;
+                        let right = 2 * i + 2;
+                       
+                        if (left < n && arr[i] < arr[left]) {
+                          largest = left;
+                        }
+                       
+                        if (right < n && arr[largest] < arr[right]) {
+                          largest = right;
+                        }
+                       
+                        if (largest != i) {
+                          const temp = arr[largest];
+                          arr[largest] = arr[i];
+                          arr[i] = temp;
+                       
+                          heapify(arr, n, largest);
+                        }
+                      }
+                       
+                      function heapSort(arr) {
+                        for (let i = Math.floor(arr.length / 2); i >= 0; i--) {
+                          heapify(arr, arr.length, i);
+                        }
+                       
+                        for (let i = arr.length - 1; i >= 1; i--) {
+                          const temp = arr[0];
+                          arr[0] = arr[i];
+                          arr[i] = temp;
+                       
+                          heapify(arr, i, 0);
+                        }
+                      }
+                       
+                      const initData = [124, 235, 456, 123, 756, 476, 285, 998, 379, 108];
+                      console.log(`Initial array:`, initData);
+                      heapSort(initData);
+                      console.log(`Sorted array:`, initData);
+                </code>
+                The result:
+
+                Initial array: [ 124, 235, 456, 123, 756, 476, 285, 998, 379, 108 ]
+                Sorted array: [ 108, 123, 124, 235, 285, 379, 456, 476, 756, 998 ]
+            </pre>
+        </details>
+
+        <h3>You should choose the heap sort when:</h3>
+        <ul>
+            <li>an array is partially sorted</li>
+            <li>an array to be sorted is relatively small</li>
+            <li>a simple sorting implementation is desired</li>
+            <li>there are limits on memory usage</li>
+        </ul>
+        <br>
+
+        <p>Additional information can be found <a target="_blank" href="https://www.equestionanswers.com/c/c-heap-sort.php">here</a> </p>
+        <p>Click <a target="_blank" href="https://www.youtube.com/watch?v=2DmK_H7IdTo">here</a> or
+            <a target="_blank"
+                href="https://www.youtube.com/watch?v=7vw2iIdqHlM">here</a> to
+            see a more detailed explanation of the heapsort.
+        </p>
 </body>
 </html>
