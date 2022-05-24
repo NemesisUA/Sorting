@@ -13,6 +13,100 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
 </head>
 <body>
-    
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
+        </div>
+        <a href="./index.html">
+            <h1>sorting methods</h1>
+        </a>
+        <a href="https://github.com/NemesisUA?tab=repositories" target="_blank"><span class="github-logo"></span></a>
+    </header>
+
+    <nav>
+        <ul class="navigation">
+            <li><a href="./bubble_sort.html">Bubble</a></li>
+            <li><a href="./selection_sort.html">Selection</a></li>
+            <li><a href="./insertion_sort.html">Insertion</a></li>
+            <li><a href="./heap_sort.html">Heap</a></li>
+            <li><a href="./merge_sort.html">Merge</a></li>
+            <li class="active"><a href="#">Quick</a></li>
+            <li><a href="#">Radix</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Quick Sorting</h2>
+        <p>Quicksort sort is one of the "divide and conquer" algorithms. It works by recursively repeating the following steps:</p>
+        <ol>
+            <li>Select a key index and split an array into two parts by it. There are many ways to do this, random or rightmost (i.e. the last) element, for example.</li>
+            <li>Move all elements greater than the key to the right side of the array, and all elements less than the key to the left side. The key element is now in the correct position - it is larger than any element on the left and smaller than any element on the right.</li>
+            <li>Repeat the first two steps until the array is completely sorted.</li>
+        </ol>
+        <br>
+
+        <p>Quicksort is not adaptive and not a stable sort.</p>
+        <img src="./src/quick_page/quickSort_table.png" class="center" alt="table">
+
+        <p><span class="attention">Quicksort is significantly faster than other O(nlogn) algorithms, because its inner loop can be efficiently implemented on most data structures, and in most real-world data, it is possible to make design choices that minimize the probability of requiring quadratic time.</span></p>
+        <br>
+        <p>Let us sort our array of library cards using the quicksort. Recall that the values of library cards are {124,235,456,123,756,476,285,998,379,108}.</p>
+        <img src="./src/quick_page/quickSort.gif" alt="quick sorting gif">
+        <p>Look at the program implementation of the quicksort.</p>
+
+        <details>
+            <summary>JavaScript realisation</summary>
+            <pre>
+                <code class="js">
+                    function partition(arr, left, right) {
+                        let i = left - 1;
+                        let key = arr[right];
+                       
+                        for (let j = left; j <= right; j++) {
+                          if (arr[j] < key) {
+                            i += 1;
+                       
+                            const temp = arr[j];
+                            arr[j] = arr[i];
+                            arr[i] = temp;
+                          }
+                        }
+                       
+                        const temp = arr[right];
+                        arr[right] = arr[i + 1];
+                        arr[i + 1] = temp;
+                        return i + 1;
+                      }
+                       
+                      function quickSort(arr, left, right) {
+                        if (left < right) {
+                          const keyIndex = partition(arr, left, right);
+                          quickSort(arr, left, keyIndex - 1);
+                          quickSort(arr, keyIndex + 1, right);
+                        }
+                      }
+                       
+                      const initData = [124, 235, 456, 123, 756, 476, 285, 998, 379, 108];
+                      console.log('Initial array:', initData);
+                      quickSort(initData, 0, initData.length-1);
+                      console.log(`Sorted array:`, initData);
+                </code>
+                The result:
+
+                Initial array: [ 124, 235, 456, 123, 756, 476, 285, 998, 379, 108 ]
+                Sorted array: [ 108, 123, 124, 235, 285, 379, 456, 476, 756, 998 ]
+            </pre>
+        </details>
+
+        <h3>You should choose the quicksort when:</h3>
+        <ul>
+            <li>a fast sorting is desired</li>
+            <li>there are no limits on memory usage or they are not very flexible</li>                 
+        </ul>
+        <br>
+
+        <p>click <a href="https://www.youtube.com/watch?v=Hoixgm4-P4M" target="_blank">here</a> or <a href="https://www.youtube.com/watch?v=aXXWXz5rF64&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=3" target="_blank">here</a>
+            to see a more detailed explanation of the quicksort.</p>
+    </main>
 </body>
 </html>
