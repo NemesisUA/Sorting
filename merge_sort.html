@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="src/logo1.png" alt="#083b66 https://iconscout.com/" width="100"></a>
+        </div>
+        <a href="./index.html">
+            <h1>sorting methods</h1>
+        </a>
+        <a href="https://github.com/NemesisUA?tab=repositories" target="_blank"><span class="github-logo"></span></a>
+    </header>
+
+    <nav>
+        <ul class="navigation">
+            <li><a href="./bubble_sort.html">Bubble</a></li>
+            <li><a href="./selection_sort.html">Selection</a></li>
+            <li><a href="./insertion_sort.html">Insertion</a></li>
+            <li><a href="./heap_sort.html">Heap</a></li>
+            <li  class="active"><a href="#">Merge</a></li>
+            <li><a href="#">Radix</a></li>
+            <li><a href="#">Quick</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Merge Sorting</h2>
+        <p>Merge sort is a sorting algorithm that orders lists (or other data structures whose elements can only be accessed sequentially, such as streams) in a specific order. To merge means to combine two (or more) sequences into one ordered sequence by cyclically selecting the items currently available.</p>
+        <p>When sorting an array by merge, we split the array in half until each chunk is one element long. Then these areas are returned to their place (merged) in the correct order. For the algorithm to work, we must implement the operation of recursively dividing an array into groups (Sort method) and merging in the correct order (Merge method).</p>
+        <img src="./src/merge_page/merge_table.png" class="center" alt="table">
+
+        <p class="attention">Merge sort is a stable sorting algorithm because equal elements are not rearranged in the final sort order with relation to one another.</p>
+        <br>
+        <p>Let us sort our array of library cards using the merge sort. Recall that the values of library cards are {124,235,456,123,756,476,285,998,379,108}.</p>
+        <img src="./src/merge_page/merge.gif" alt="merge gif">
+        <p>Look at the program implementation of the merge sort.</p>
+
+        <details>
+            <summary>JavaScript realisation</summary>
+            <pre>
+                <code class="js">
+                    function mergeSort(arr) {
+                        if (arr.length > 1) {
+                          const mean = Math.floor(arr.length / 2);
+                          const leftArr = arr.slice(0, mean);
+                          const rightArr = arr.slice(mean, arr.length);
+                       
+                          mergeSort(leftArr);
+                          mergeSort(rightArr);
+                       
+                          let i = 0;
+                          let j = 0;
+                          let k = 0;
+                       
+                          while (i < leftArr.length && j < rightArr.length) {
+                            if (leftArr[i] < rightArr[j]) {
+                              arr[k] = leftArr[i];
+                              i += 1;
+                            } else {
+                              arr[k] = rightArr[j];
+                              j += 1;
+                            }
+                       
+                            k += 1;
+                          }
+                       
+                          while (i < leftArr.length) {
+                            arr[k] = leftArr[i];
+                            i += 1;
+                            k += 1;
+                          }
+                       
+                          while (j < rightArr.length) {
+                            arr[k] = rightArr[j];
+                            j += 1;
+                            k += 1;
+                          }
+                        }
+                      }
+                       
+                      const initData = [124, 235, 456, 123, 756, 476, 285, 998, 379, 108];
+                      console.log(`Initial array:`, initData);
+                      mergeSort(initData);
+                      console.log(`Sorted array:`, initData);
+                </code>
+                The result:
+
+                Initial array: [ 124, 235, 456, 123, 756, 476, 285, 998, 379, 108 ]
+                Sorted array: [ 108, 123, 124, 235, 285, 379, 456, 476, 756, 998 ]
+            </pre>
+        </details>
+
+        <h3>You should choose the merge sort when:</h3>
+        <ul>
+            <li>there is a need to implement external sorting</li>
+            <li>an array is not partially sorted, so despite the fact that in the worst case scenario it will work faster than the linear one, in the best case scenario, its performance will be lower than that of the linear one</li>
+            <li>there are no limits on memory usage</li>            
+        </ul>
+        <br>
+
+        <p>Click <a target="_blank" href="https://www.youtube.com/watch?v=4VqmGXwpLqc">here</a> to see a more detailed explanation of the merge sort.</p>
+    </main>
+</body>
+</html>
